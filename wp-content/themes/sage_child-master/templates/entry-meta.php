@@ -1,1 +1,0 @@
-<time class="updated" datetime="<?php the_modified_time('Y-n-j G:i'); ?>"><?php the_modified_time('Y年n月j日'); ?></time>
