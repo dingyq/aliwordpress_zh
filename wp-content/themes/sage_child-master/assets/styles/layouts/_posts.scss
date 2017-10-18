@@ -1,0 +1,374 @@
+//内容页 - 产品和文档
+.sing-item,
+.sing-docs {
+    font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+    font-size: 16px;
+    //内容页的头部高度
+    margin-top: 30px;
+    .entry-content {
+        //正文
+        line-height: 2em;
+        font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+        a {
+            color: #333;
+            //明确标明正文带链接的文字
+            border-bottom: 1px dotted #333;
+            padding-bottom: 0px;
+            text-decoration: none;
+            &:hover {
+                color: $c;
+                border-bottom: 1px solid $c;
+                text-decoration: none;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            //居中显示图片
+            display: block;
+            margin: 0 auto;
+            border-radius: .28571429rem;
+            box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+        }
+        h2 {
+            padding-top: 50px;
+            margin-top: 0;
+            a {
+                visibility: hidden; //css 隐藏但占位，默认是隐藏的 代替 display:none;
+                position: static;
+                margin-left: -3em;
+                padding-left: 1em;
+                padding-right: 1em;
+                line-height: 20px;
+                font-size: 20px;
+                color: #666;
+                border-bottom: 0;
+                &:hover {//鼠标划过标题后显示的左侧链接定位按钮图标
+                    color: #000;
+                    border-bottom: 0;
+                }
+                i {
+                    width: 20px; //匹配i标签的宽度和高度，让初次滑过h2标签的时候显示正常
+                    height: 20px;
+                }
+            }
+            &:hover a {
+                visibility: visible; //滑过 h2 后显示
+            }
+        }
+    }
+    .entry-title {
+        //主标题
+        font-size: 26px;
+        font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+    }
+    footer {
+        padding-top: 20px;
+        .col-sm-6 {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+//内容页 - 产品
+.sing-item {
+    header {
+        margin-bottom: 20px;
+        .entry-title {
+            font-size: 36px;
+            margin-top: 0; //产品内容页主标题
+            margin-bottom: 20px;
+        }
+        .entry-meta {
+            background-color: #eee;
+            //产品内容页，元素框
+            background-image: url(data:image/png;base64,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);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .entry-meta {
+            .dl-horizontal {
+                margin-left: 10px;
+                dt {
+                    color: #999;
+                    text-align: left;
+                }
+                dd {
+                    text-align: left;
+                    margin-left: 0;
+                    .entry-price {
+                        line-height: 1em;
+                    }
+                }
+            }
+            @media (min-width:768px) {
+                //屏幕大于这些的时候执行以下代码
+                .dl-horizontal {
+                    margin-bottom: 0;
+                    dt {
+                        color: #999;
+                        line-height: 42px;
+                        text-align: left;
+                        width: auto;
+                    }
+                    dd {
+                        line-height: 42px;
+                        text-align: left;
+                        margin-left: 0;
+                        .entry-price {
+                            line-height: 1em;
+                        }
+                    }
+                }
+            }
+            .entry-price {
+                color: #c40000;
+                font-size: 30px;
+            }
+        }
+    }
+    .thumbnail-medium {
+        img {
+            max-width: 100%; //产品主图最大宽度
+            height: auto!important;
+            margin-top: 30px;
+            margin-bottom: 20px; //如果不给图片加点下边距，移动端下，图片就会和 h1 标题紧贴，紧贴的效果不好看
+            border-radius: .28571429rem;
+            box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+            //移动端hack
+            @media (max-width: 768px) {
+                & {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    //产品页的颜色分类、型号。一个大分类下的子产品。
+    .entry-sku {
+        border-bottom: 1px solid #e0e0e0;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px 0 0 0;
+        z-index: 1;
+        //移动端hack
+        @media (max-width: 768px) {
+            & {
+//                display: none;//本来为了移动端整洁这一块是不显示的但是现在增加了小标题，还是显示出来更利于用户体验
+            }
+        }
+        .sku-h {
+            //主标题
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+        }
+        .sku-posts {
+            //内容页顶部的右侧导航
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 0;
+            text-align: right;
+            @media (max-width: 768px) {
+                //屏幕小于这些的时候执行以下代码
+                text-align: left;
+            }
+            li {
+                color: #666;
+                font-weight: bold;//不带链接的 进一步了解： 加粗
+                margin-bottom: 10px;
+                border-right: 1px solid transparent; //透明当占位符用为了防止浏览器加载错位
+            }
+            //介绍分类
+            .sku-title {
+                display: block;
+                color: #333;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: initial;//带链接的 当前页面选中的相同 url 不加粗
+                transition: all .2s;
+                &:hover, //滑过
+                &.current {
+                    //地址栏链接与a标签链接匹配后，应用的样式
+                    transition: all .2s;
+                    color: #00bb9c;
+                }
+                &.current {
+                    cursor: default;
+                }
+            }
+        }
+    }
+    .current-category-next-link {
+        //产品页的继续了解更多
+        background-color: #f5f8fa;
+        a {
+            display: none;
+            text-align: center;
+            text-decoration: none;
+            padding: 80px 20px;
+            color: #666;
+            transition: all .2s;
+            h3 {
+                font-size: 24px;
+                i {
+                    //右箭头，小图标
+                    font-size: 22px;
+                }
+            }
+            &:before {
+                //继续了解的上面的那个小提示框
+                content: "返回";
+                padding: 4px 10px 5px;
+                text-transform: uppercase;
+                font-size: 1.1rem;
+                font-family: inherit;
+                color: rgba(255, 255, 255, 0.8);
+                border: rgba(255, 255, 255, 0.5) 1px solid;
+                border-radius: 4px;
+                transition: all 0.5s ease;
+                color: rgba(0, 0, 0, 0.5);
+                border-color: rgba(0, 0, 0, 0.2);
+            }
+            &:hover {
+                //划过 a标签的样式
+                &:before {
+                    //划过 current后的 :before过度样式
+                    color: #222;
+                    background: #fff;
+                    transition: all 0.2s ease;
+                }
+            }
+            &.current {
+                //有下一篇的时候，的文字样式
+                display: block;
+                transition: all .2s;
+                &:before {
+                    //有下一篇，且选中状态下
+                    content: "下一篇";
+                }
+                &:hover {
+                    //划过 .current的样式
+                }
+            }
+            //这里的 css写法只能限制在如果没有下一篇了，就不会有 .current类出现，那么就全部不显示了。如果全部不显示了，默认显示第一篇。具体 DOM控制在 customizer.js 查阅
+        }
+        .excerpt-next {
+            position: relative;
+            z-index: 1;
+        }
+        .thumbnail-next {
+            position: absolute;
+            right: 3%;
+            bottom: 35%;
+        }
+    }
+}
+
+//内容页 - 文档
+.sing-docs {
+    time.updated {
+        // 博客文档时间显示
+        color: #ccc;
+        font-size: 12px;
+    }
+    .entry-title {
+        text-align: center;
+    }
+    .entry-thumb {
+        padding: 20px 0;
+        img {
+            box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+        }
+    }
+}
+
+
+//文章目录
+#article-index{
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    //PC端hack
+    @media (min-width: 768px) {
+        & {
+            width: 300px;
+            float: right;
+            margin-left: 20px;
+        }
+    }
+}
+#article-index strong{
+    display: block;
+    line-height: 30px;
+}
+#index-ul{
+    li {
+        a {
+            border-bottom: none;
+            display: block;
+        }
+    }
+}
+
+
+//tag
+.get-the-tag-list {
+    li {
+        margin-bottom: 10px;
+    }
+}
+
+
+//评论
+.comments {
+    h2 {
+        //来自于此文章有几个回复
+        display: none;
+    }
+    .comment-list {
+        //评论列表
+        padding-left: 0;
+    }
+    .comment-meta {
+        //头像
+        text-align: left;
+        img {
+            border-radius: 50%;
+        }
+    }
+    .comment-respond {
+        //发表评论
+        .comment-notes {
+            //电子邮件地址不会被公开。
+            display: none;
+        }
+        .comment-form-comment {
+            //评论
+            label[for=comment] {
+                //提示这是评论框的文字：评论
+            }
+        }
+        .comment-form-author {
+            //姓名
+        }
+        .comment-form-email {
+            //电子邮件
+        }
+        .comment-form-url {
+            //站点
+        }
+        .form-submit {
+            //发表评论
+        }
+    }
+}
+
+

@@ -1,0 +1,10 @@
+// Variables
+$c: #406cc0 !default; //默认主体色 c=颜色
+$c-: $c / 0.6 !default; //颜色更浅的样式
+$ch: $c / 2 !default; //默认主体色滑过效果 ch=颜色滑过
+//nav
+$nav-c-bgc: #fff; //导航颜色背景
+$nav-c: #fff; //导航按钮颜色
+$nav-c-h: $c; //导航按钮滑过和选中颜色
+$nav-c-t:#000; //导航文字默认颜色
+$nav-c-t-h:#fff; //导航文字滑过颜色

@@ -1,0 +1,200 @@
+//首页
+.home {
+    
+}
+
+//产品和文章列表页
+.cate-item,
+.cate-docs {}
+
+//产品列表页
+.cate-item {
+    background: #fff;
+    margin-bottom: 20px;
+    float: left;
+    display: block;
+    border-bottom: 2px solid #fff;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    &:hover {
+        border-bottom: 2px solid $c;
+    }
+    a {
+        margin-bottom: 0;
+        display: block;
+    }
+    img {
+        margin-bottom: 0;
+        max-width: 100%!important;
+        height: auto!important;
+        border-radius: .28571429rem .28571429rem 0 0;
+        box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+    }
+    .entry-title {
+        margin-bottom: 0;
+        margin-top: 0;
+        a {
+            font-size: 16px;
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            color: #666;
+            text-decoration: none;
+        }
+    }
+    .entry-summary {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        overflow: hidden;
+        .price {
+            color: red;
+        }
+        .chengjiao {
+            float: right;
+            color: #666;
+            padding-right: 10px;
+        }
+    }
+}
+
+//文章列表页
+.cate-docs {    
+    padding: 35px 0 15px 0;
+    border-bottom: 1px solid #eee;
+    .entry-title {
+        margin-top: 0;
+        margin-bottom:10px;
+        line-height: 1em;
+        font-size: 26px;
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+    }
+    .entry-thumb{ //文章列表页图片
+            margin-bottom: 10px;
+        a{
+            display: block;
+        }
+        img{
+            max-width: 100%!important;
+            width: 100%;
+            height: auto!important;
+            border-radius: .28571429rem;
+            box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+            transition: all .1s ease-in;//划过渐变效果
+            -webkit-transition: all .1s ease-in;
+            &:hover{
+                box-shadow: 0 2px 4px 0 $c,0 2px 10px 0 $c;
+            }
+        }
+    }
+    .entry-summary {
+        //文章内容概要
+        color: #666;
+        line-height: 1.5em;
+        font-size: 14px;
+    }
+    time.updated {
+        //文章列表页时间
+        color: #999;
+        font-size: 12px;
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+//移动端hack
+@media (max-width:768px) {
+    //移动端产品列表页
+    .cate-item {
+        .entry-summary {
+            margin-top: 5px;
+            height: 40px;
+            line-height: 20px;
+            .price {
+                display: block;
+            }
+            .chengjiao {
+                float: none;
+                display: block;
+                color: #666;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+//单页
+.page {
+    .content{
+        //这部分，为了修复单页 h2标签与正文内容页不符的问题，完全是从 _posts.scss 复制过来的（我这么懒了？就不会找个方便后期维护的方法吗？还是你觉得这个模板已经做到尾声了？不必再继续优化了？这个问题解决之前，绝对不能继续改模板。不然后期更乱。就算有 scss处理，也千万不能这样！2016年8月2日20:32:05）
+        font-size: 16px;
+        line-height: 2em;
+        font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+        a {
+            color: #333;
+            //明确标明正文带链接的文字
+            border-bottom: 1px dotted #333;
+            padding-bottom: 0px;
+            text-decoration: none;
+            &:hover {
+                color: $c;
+                border-bottom: 1px solid $c;
+                text-decoration: none;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            //居中显示图片
+            display: block;
+            margin: 0 auto;
+            border-radius: .28571429rem;
+            box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+        }
+        h2 {
+            padding-top: 50px;
+            margin-top: 0;
+            a {
+                visibility: hidden; //css 隐藏但占位，默认是隐藏的 代替 display:none;
+                position: static;
+                margin-left: -3em;
+                padding-left: 1em;
+                padding-right: 1em;
+                line-height: 20px;
+                font-size: 20px;
+                color: #666;
+                border-bottom: 0;
+                &:hover {//鼠标划过标题后显示的左侧链接定位按钮图标
+                    color: #000;
+                    border-bottom: 0;
+                }
+                i {
+                    width: 20px; //匹配i标签的宽度和高度，让初次滑过h2标签的时候显示正常
+                    height: 20px;
+                }
+            }
+            &:hover a {
+                visibility: visible; //滑过 h2 后显示
+            }
+        }
+    }
+}
+
+//列表页和单页的大标题
+.page-header {
+    margin-bottom: 50px;
+    //顶部此页介绍（列表页、单页）
+    h1 {
+        color: #666;
+        font-size: 60px;
+    }
+    .taxonomy-description {
+        color: #999;
+        font-size: 24px;
+    }
+}
+
+

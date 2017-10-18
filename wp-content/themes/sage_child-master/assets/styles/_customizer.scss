@@ -1,0 +1,485 @@
+body {
+    font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+}
+
+//大屏幕（大桌面显示器，大于等于 1200px）
+@media (min-width:1200px) {
+    .container {
+        width: 970px;
+    }
+}
+
+//禁用超链接的样式
+.disabled {
+    color: #ccc!important;
+    text-decoration: none;
+    //text-decoration: line-through;//既然鼠标指针是默认的，那就应该有点其他的提示吧
+    //    cursor: not-allowed;//这个鼠标手势不怎么友好，看起来很凶的样子
+    //cursor: default;//总感觉，鼠标指针这个样子很别扭，还不如用默认的呢
+    //pointer-events: none;//用CSS禁止点击的方法，但是效果不是很好，所以就注释掉，用 JS 吧
+    &:hover {
+        color: #ccc!important;
+        text-decoration: none;
+        //text-decoration: line-through; //既然鼠标指针是默认的，那就应该有点其他的提示吧
+    }
+}
+
+//首页顶部大图
+.slide {
+    .jumbotron {
+        background-color: #00bb9c;
+        animation-name: myfirst_jumbotron;
+        animation-duration: 20s;
+        animation-timing-function: ease; //曲线速度：正常
+        animation-delay: 2s; //两秒后开始执行动画
+        animation-iteration-count: infinite; //播放次数：无限次
+        animation-direction: alternate; //动画是否轮流逆向播放：是
+        animation-play-state: running; //动画是否正在运行：是
+        h1 {
+            color: #fff;
+            text-shadow: 4px 3px 0 #00bb9c, 9px 8px 0 rgba(0, 0, 0, 0.15);
+            animation: myfirst_jumbotron_h1 20s ease 2s infinite alternate; //名字 几秒 曲线速度 几秒后执行 播放次数 是否轮流逆向播放
+        }
+        p {
+            color: #fff;
+            margin: 35px 0 20px;
+        }
+        a {
+            border-radius: 0;
+            padding: 10px 46px;
+        }
+    }
+}
+
+//首页顶部大图响应式PC端
+@media screen and (min-width: 768px) {
+    .slide {
+        .jumbotron {
+            height: 326px;
+            padding-top: 78px;
+        }
+    }
+}
+
+//首页顶部大图响应式移动端
+@media screen and (max-width: 768px) {
+    .slide {
+        .jumbotron {
+            h1 {
+                text-shadow: 1px 0px 0 #00bb9c, 5px 4px 0 rgba(0, 0, 0, .15);
+                animation: myfirst_mobile_jumbotron_h1 20s ease 2s infinite alternate; //名字 几秒 曲线速度 几秒后执行 播放次数 是否轮流逆向播放
+            }
+            p {
+                margin-top: 0;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+//动画主要定义 .jumbotron 
+@keyframes myfirst_jumbotron {
+    0% {
+        background-color: #00bb9c;
+    }
+    25% {
+        background-color: #e83b37;
+    }
+    50% {
+        background-color: #48b68f;
+    }
+    75% {
+        background-color: #f29538;
+    }
+    100% {
+        background-color: #319394;
+    }
+}
+
+//动画主要定义 .jumbotron 的 h1
+@keyframes myfirst_jumbotron_h1 {
+    0% {
+        text-shadow: 4px 3px 0 #00bb9c, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+    25% {
+        text-shadow: 4px 3px 0 #e83b37, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        text-shadow: 4px 3px 0 #48b68f, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+    75% {
+        text-shadow: 4px 3px 0 #f29538, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+    100% {
+        text-shadow: 4px 3px 0 #319394, 9px 8px 0 rgba(0, 0, 0, 0.15);
+    }
+}
+
+//动画主要定义 移动端 .jumbotron 的 h1
+@keyframes myfirst_mobile_jumbotron_h1 {
+    0% {
+        text-shadow: 1px 0px 0 #00bb9c, 5px 4px 0 rgba(0, 0, 0, .15);
+    }
+    25% {
+        text-shadow: 1px 0px 0 #e83b37, 5px 4px 0 rgba(0, 0, 0, .15);
+    }
+    50% {
+        text-shadow: 1px 0px 0 #48b68f, 5px 4px 0 rgba(0, 0, 0, .15);
+    }
+    75% {
+        text-shadow: 1px 0px 0 #f29538, 5px 4px 0 rgba(0, 0, 0, .15);
+    }
+    100% {
+        text-shadow: 1px 0px 0 #319394, 5px 4px 0 rgba(0, 0, 0, .15);
+    }
+}
+
+//产品详情页的图片最大宽度
+.entry-summary img {
+    max-width: 100%;
+    height: auto!important;
+}
+
+//nav 主导航的切换方式
+.current-menu-ancestor.current-menu-parent.dropdown a.dropdown-toggle {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+//nav 主导航，当前文章页面下的导航高亮提示
+.navbar-default .navbar-nav>.current-post-ancestor>a, //当前文章的祖先
+.navbar-default .navbar-nav>.current-menu-parent>a, //当前菜单的父母
+.navbar-default .navbar-nav>.current-post-ancestor>a:focus,
+.navbar-default .navbar-nav>.current-menu-parent>a:focus,
+.navbar-default .navbar-nav>.current-post-ancestor>a:hover,
+.navbar-default .navbar-nav>.current-menu-parent>a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+//首页，产品
+.item-accets {
+    margin-bottom: 50px;
+}
+
+//首页，文档
+.docs-accets {
+    //    margin-bottom: 50px;
+}
+
+//首页，快速访问
+.service-accets {
+    margin-bottom: 20px;
+    .content {
+        border-radius: .28571429rem;
+        border: 1px solid rgba(34, 36, 38, .15);
+        box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+        padding: 10px 10px 15px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+        h2 {
+            cursor: default;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 18px;
+            position: absolute;
+            top: 15px;
+            left: 0;
+            font-size: 12px;
+            background-color: #00B5AD;
+            border-color: #00B5AD;
+            color: #FFF;
+            border-color: #00827c;
+            left: 2px;
+            padding: .5833em .833em;
+            padding-left: calc(1rem + 1.2em);
+            padding-right: 1.5em;
+            border-radius: 0 .28571429rem .28571429rem 0;
+            &:after {
+                position: absolute;
+                content: '';
+                top: 100%;
+                left: 0;
+                background-color: transparent;
+                border-style: solid;
+                border-width: 0 1.2em 1.2em 0;
+                border-color: transparent;
+                border-right-color: inherit;
+                width: 0;
+                height: 0;
+            }
+        }
+        .row {
+            margin-top: 50px;
+            margin-right: -5px;
+            margin-left: -5px;
+            .col-xs-4 {
+                padding-right: 5px;
+                padding-left: 5px;
+                margin-bottom: 5px;
+            }
+        }
+        a {
+            color: #333;
+            &:hover {}
+            &.h {
+                color: #e73a37;
+            }
+        }
+    }
+}
+
+//首页默认文档列表的标题
+h2.panel-heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    a {
+        color: #000;
+        font-weight: bold;
+        padding: 10px 20px 10px 0;
+    }
+}
+
+//首页默认文档列表
+.panel-default {
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34, 36, 38, .15);
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+}
+
+//首页默认文档列表的内容标题如果过长，就给自动截断
+a.list-group-item {
+    overflow: hidden;
+    height: 41px;
+    line-height: 41px;
+    padding: 0;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+//首页产品和配件，4栏图片展示的，在靠下位置的（在下面还有单个的h2左侧小圆点背景配置）
+.home-part-bd, //布袋
+.home-part-gj, //骨架
+.home-parts, //配件
+.home-item {
+    h2 {
+        a {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2a2a2a;
+            line-height: 36px;
+            height: 36px;
+            display: block;
+            overflow: hidden;
+            text-decoration: none;
+            width: 200px;
+            &:before {
+                content: "";
+                float: left;
+                width: 10px;
+                height: 10px;
+                border-radius: 10px;
+                margin-right: 5px;
+                margin-top: 13px;
+                position: absolute;
+                left: 2px;
+                background-color: rgb(110, 135, 235);
+            }
+        }
+    }
+    //首页底部图片产品下面的附属产品，不带图片的产品标题
+    .item-title-links,
+    .parts-title-links {
+        a {
+            color: #333;
+            display: inline-block;
+            overflow: hidden;
+            line-height: 24px;
+            height: 24px;
+            font-size: 14px;
+        }
+    }
+}
+
+//首页产品设备
+.home-item {
+    h2 {
+        a {
+            &:before {
+                background-color: #728BF1;
+            }
+        }
+    }
+}
+
+//首页产品布袋
+.home-part-bd {
+    h2 {
+        a {
+            &:before {
+                background-color: #9f796e;
+            }
+        }
+    }
+}
+
+//首页产品骨架
+.home-part-gj {
+    h2 {
+        a {
+            &:before {
+                background-color: #8982cf;
+            }
+        }
+    }
+}
+
+//首页产品配件
+.home-parts {
+    h2 {
+        a {
+            &:before {
+                background-color: #60965D;
+            }
+        }
+    }
+}
+
+//qrcode 首页手机访问，图片二维码
+@media (max-width:768px) {
+    //屏幕小于这些的时候执行以下代码
+    .qrcode-home {
+        display: none;
+    }
+}
+
+.qrcode-text {
+    cursor: default;
+}
+
+.qrcode-img {
+    display: none;
+    position: absolute;
+    top: -200px;
+    left: -100px;
+    z-index: 100;
+    width: 200px;
+    height: 200px;
+}
+
+.qrcode-span {
+    display: none;
+    position: absolute;
+    top: -225px;
+    left: -100px;
+    z-index: 100;
+    background-color: #fff;
+    width: 200px;
+    padding-top: 5px;
+}
+
+//顶部导航下拉带图pc端专属样式
+.nav-img-0,
+.nav-img-1,
+.nav-img-2,
+.nav-img-3 {
+    display: none;
+    position: fixed;
+    top: 52px;
+    width: 100%;
+    height: 326px; //如果是 col-md-2，也就是 6位*2，的话用这个高度
+    //    height: 212px;//如果是 col-md-3，也就是 4位*2，的话用这个高度
+    background-color: #fff;
+    z-index: 1001;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    background-repeat: no-repeat; //定位图片显示，后面有单独配置图像
+    background-position: bottom right; //定位图片位置，后面有单独配置图像
+    .container {
+        .content {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+    .ent-content {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        &.current {
+            //控制增加这个class的选项在 customizer.js
+        }
+    }
+    .ent-thumbnail {
+        a {
+            display: block;
+            &.current {
+                //控制增加这个class的选项在 customizer.js
+                box-shadow: 0 2px 4px 0 $c, 0 2px 10px 0 $c;
+            }
+        }
+    }
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: .28571429rem;
+        box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15);
+    }
+    .ent-title {
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        a {
+            display: block;
+            color: #000;
+            text-decoration: initial;
+            overflow: hidden;
+            height: 12px;
+            line-height: 12px;
+        }
+    }
+    .ent-summary {
+        font-size: 12px;
+        .ent-price {
+            color: red;
+        }
+    }
+}
+
+//单独配置每个下拉的右下角背景图
+.nav-img-0 {
+    background-image: url("/wp-content/themes/sage_child/assets/images/nav-img-0.jpg");
+}
+
+.nav-img-1 {
+    background-image: url("/wp-content/themes/sage_child/assets/images/nav-img-1.jpg");
+}
+
+.nav-img-2 {
+    background-image: url("/wp-content/themes/sage_child/assets/images/nav-img-2.jpg");
+}
+
+.nav-img-3 {
+    background-image: url("/wp-content/themes/sage_child/assets/images/nav-img-3.jpg");
+}
+
+//PC端hack
+@media (min-width:768px) {
+    .hover-nav-img-0 ul,
+    .hover-nav-img-1 ul,
+    .hover-nav-img-2 ul,
+    .hover-nav-img-3 ul {
+        //        display: none!important; //PC端不显示
+    }
+}
+
+//移动端hack
+@media (max-width:768px) {
+    .nav-img-0,
+    .nav-img-1,
+    .nav-img-2,
+    .nav-img-3 {
+        display: none!important; //移动端不显示
+    }
+}
