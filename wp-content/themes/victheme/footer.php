@@ -14,7 +14,7 @@
         <div class="vc-footer-copyright">
             <div> Copyright &copy; <?php echo date('Y'); ?> <a class="vc-a" href="http://vicchen.me">Vic Theme</a>
             </div>
-            Powered by <a class="vc-a" href="#!"><?php bloginfo('name'); ?></a> &bull; <?php echo get_option( 'zh_cn_l10n_icp_num' );?> <?php echo stripcslashes(get_option('vc-cnzz')); ?>
+            Powered by <a class="vc-a" href="#!"><?php bloginfo('name'); ?></a> &bull; <a class="vc-a" href="http://www.beian.miit.gov.cn"><?php echo get_option( 'zh_cn_l10n_icp_num' );?></a> <?php echo stripcslashes(get_option('vc-cnzz')); ?>
         </div>
         <div class="backtop" title="返回顶部" ></div>
     </footer>
